@@ -1,8 +1,8 @@
 # Builds the McGinn Page for Spike
-import RogersSerial2
-RogersSerial2.processor = 'SPIKE Prime'
+import SpikeSerial
+SpikeSerial.processor = 'SPIKE Prime'
 
-RogersSerial2.pyCode = \
+SpikeSerial.pyCode = \
     {'Chapter1_GettingStarted':
          {'lights':['Change LED Color','''To begin, try running this code by clicking on the <b>Try it!!! </b> button: ''','''import hub\nhub.led(3) # blue   (colors 0 - 10)''', '''Can you make it go green? <br> <br>Notice the \'import\' command - that pulls in a python library that lets you talk to Spike.
                     '''],
@@ -48,7 +48,7 @@ ip_address = 'localhost'
 # Create Webserver
 if __name__ == '__main__':
 
-    http_server = HTTPServer((ip_address, host_port), RogersSerial2.MyServer)
+    http_server = HTTPServer((ip_address, host_port), SpikeSerial.MyServer)
     print("Server Starts - %s:%s" % (ip_address, host_port))
     webbrowser.open_new('http://%s:%s' %  (ip_address, host_port))
 
